@@ -36,12 +36,27 @@ public class TestCalculator {
         calculator = new Calculator(driver);
     }
 
-    @Test
-    public void testAdd() {
-        calculator.calcAdd();
+    @Test(priority = 1)
+    public void testKurang() {
+        calculator.pengurangan();
         System.out.println("Hasil = "+calculator.getTxtResult());
-        Assert.assertEquals(calculator.getTxtResult(), "3");
+        Assert.assertEquals(calculator.getTxtResult(), "1");
     }
+
+    @Test(priority = 2)
+    public void testKali() {
+        calculator.perkalian();
+        System.out.println("Hasil = "+calculator.getTxtResult());
+        Assert.assertEquals(calculator.getTxtResult(), "12");
+    }
+
+    @Test(priority = 3)
+    public void testBagi() {
+        calculator.pembagian();
+        System.out.println("Hasil = "+calculator.getTxtResult());
+        Assert.assertEquals(calculator.getTxtResult(), "2");
+    }
+
 
     @AfterClass
     public void closeApp() {
